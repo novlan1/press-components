@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="zh-CN">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>开发 element-plus 组件 | press-components</title>
     <meta name="description" content="A VitePress site">
     <link rel="stylesheet" href="/press-components/assets/style.290a3e49.css">
-    <link rel="modulepreload" href="/press-components/assets/app.9a464051.js">
-    <link rel="modulepreload" href="/press-components/assets/zh-CN_guide_elp-dev.md.2740f74c.lean.js">
+    <link rel="modulepreload" href="/press-components/assets/app.5777d09b.js">
+    <link rel="modulepreload" href="/press-components/assets/zh-CN_guide_elp-dev.md.da459f08.lean.js">
     
     <link rel="icon" href="/images/press-icon.svg">
   </head>
@@ -38,8 +38,8 @@
 <span class="line"><span style="color:#F07178;">  </span><span style="color:#A6ACCD;">elmPlusComponents</span><span style="color:#89DDFF;">.</span><span style="color:#82AAFF;">forEach</span><span style="color:#F07178;">(</span><span style="color:#89DDFF;">(</span><span style="color:#A6ACCD;">comp</span><span style="color:#89DDFF;">)</span><span style="color:#F07178;"> </span><span style="color:#C792EA;">=&gt;</span><span style="color:#F07178;"> </span><span style="color:#A6ACCD;">app</span><span style="color:#89DDFF;">.</span><span style="color:#82AAFF;">use</span><span style="color:#F07178;">(</span><span style="color:#A6ACCD;">comp</span><span style="color:#F07178;">))</span></span>
 <span class="line"><span style="color:#89DDFF;">}</span></span>
 <span class="line"></span></code></pre></div><h2 id="三、demo组件注意事项" tabindex="-1">三、demo组件注意事项 <a class="header-anchor" href="#三、demo组件注意事项" aria-hidden="true">#</a></h2><p>开发调试的时候，都是通过使用 demo组件 来开发调试组件，在当前项目启动的 dev server，访问的是 demo组件 而非组件库中的组件。</p><p>路由文件：<code>element-plus/demo/router.ts</code></p><ol><li>demo 目录中建立对应的<strong>文件夹</strong>，以组件名称为文件夹名称。</li><li>demo组件 命名，以 <strong>组件名+功能</strong> 的方式进行命名。如自定义列的table组件：table-custom-columns。</li><li>添加路由。注意，路由不仅仅是当前项目中访问，在 docs 项目中也是需要的，并且 docs 中的插件会通过一定规则来访问demo组件的源码文件，所以 <strong>路由path 需要和 文件名 一致</strong>。</li></ol></div></div></main><footer class="VPDocFooter" data-v-5a3bc423 data-v-f3bc760a><div class="edit-info" data-v-f3bc760a><!----><!----></div><div class="prev-next" data-v-f3bc760a><div class="pager" data-v-f3bc760a><a class="pager-link prev" href="/press-components/zh-CN/guide/docs-dev.html" data-v-f3bc760a><span class="desc" data-v-f3bc760a>Previous page</span><span class="title" data-v-f3bc760a>docs项目</span></a></div><div class="has-prev pager" data-v-f3bc760a><!----></div></div></footer><!--[--><!--]--></div></div></div></div></div><footer class="VPFooter has-sidebar" data-v-0e033486 data-v-4f4b717f><div class="container" data-v-4f4b717f><p class="message" data-v-4f4b717f>press-components</p><p class="copyright" data-v-4f4b717f>Copyright © 2022-present novlan1</p></div></footer><!--[--><!--]--></div></div>
-    <script>__VP_HASH_MAP__ = JSON.parse("{\"index.md\":\"e7396c75\",\"zh-cn_components_element-plus_data 数据展示_table.md\":\"828fbff1\",\"zh-cn_components_element-plus_form 表单组件_data-picker.md\":\"0017612b\",\"zh-cn_guide_docs-dev.md\":\"0aee9d04\",\"zh-cn_guide_elp-dev.md\":\"2740f74c\",\"zh-cn_guide_elp-install.md\":\"fda9e7b0\"}")</script>
-    <script type="module" async src="/press-components/assets/app.9a464051.js"></script>
+    <script>__VP_HASH_MAP__ = JSON.parse("{\"index.md\":\"9e42b05c\",\"zh-cn_components_element-plus_data 数据展示_table.md\":\"cd964346\",\"zh-cn_components_element-plus_form 表单组件_data-picker.md\":\"566c9605\",\"zh-cn_guide_docs-dev.md\":\"138547a5\",\"zh-cn_guide_elp-dev.md\":\"da459f08\",\"zh-cn_guide_elp-install.md\":\"b9f2c65f\"}")</script>
+    <script type="module" async src="/press-components/assets/app.5777d09b.js"></script>
     
   </body>
 </html>

@@ -7,6 +7,7 @@ import footer from './configs/footer'
 const base = process.env.PUBLISH_PATH || '/press-components/';
 
 export default defineConfig({
+  lang: 'zh-CN',
   title: 'press-components',
   description: '',
   appearance: false,

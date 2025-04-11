@@ -4,7 +4,7 @@ import sidebar from './configs/sidebar'
 import footer from './configs/footer'
 // import { mdPlugin } from './configs/plugins'
 
-const base = '/'
+const base = process.env.PUBLISH_PATH || '/press-components/';
 
 export default defineConfig({
   title: 'press-components',

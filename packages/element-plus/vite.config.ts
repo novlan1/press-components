@@ -16,16 +16,16 @@ export default defineConfig(async ({ command, mode }) => {
       port: '3333'
     },
     plugins: [vue(),
-      {
-        name: 'fix-preload-helper',
-        apply: 'build',
-        enforce: 'pre',
-        resolveId(id) {
-          if (id.includes('vite/preload-helper')) {
-            return 'vite/preload-helper'; // 或返回虚拟模块路径
-          }
-        }
-      }
+      // {
+      //   name: 'fix-preload-helper',
+      //   apply: 'build',
+      //   enforce: 'pre',
+      //   resolveId(id) {
+      //     if (id.includes('vite/preload-helper')) {
+      //       return 'vite/preload-helper'; // 或返回虚拟模块路径
+      //     }
+      //   }
+      // }
     ],
     build: {
       rollupOptions: {

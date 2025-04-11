@@ -4,5 +4,8 @@
   "description": "hooks",
   "main": "index.ts",
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "vite": "^6.2.6"
+  }
 }

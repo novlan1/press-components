@@ -23,11 +23,12 @@
   "dependencies": {
     "@element-plus/icons-vue": "^2.0.6",
     "lodash": "^4.17.21",
+    "press-hooks": "workspace:*",
     "press-shared": "workspace:*",
-    "press-hooks": "workspace:*"
+    "vite": "^6.2.6"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^2.3.3",
+    "@vitejs/plugin-vue": "^5.2.3",
     "element-plus": "^2.2.8",
     "less": "^4.1.3",
     "rimraf": "^6.0.1",

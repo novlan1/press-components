@@ -4,7 +4,7 @@
   "description": "组件库",
   "scripts": {
     "docs:dev": "pnpm run -C docs docs:dev",
-    "docs:build": "pnpm run -C docs docs:build && pnpm run -C packages/element-plus docs:build && pnpm run -C packages/element-ui docs:build",
+    "docs:build": "pnpm run -C docs docs:build && pnpm run -C packages/element-plus docs:build",
     "build": "pnpm run build:elp && pnpm run build:elu && pnpm run build:shared",
     "build:elp": "pnpm run -C packages/element-plus build",
     "build:elu": "pnpm run -C packages/element-ui build",

@@ -16,7 +16,7 @@ export default defineConfig(async ({ command, mode }) => {
     },
     plugins: [
       sideBarPlugin(),
-      sourceCode()
+      sourceCode(),
     ],
     resolve: {
       alias: [

@@ -15,7 +15,18 @@ export default defineConfig(async ({ command, mode }) => {
     server: {
       port: '3333'
     },
-    plugins: [vue()],
+    plugins: [vue(),
+      {
+        name: 'fix-preload-helper',
+        apply: 'build',
+        enforce: 'pre',
+        resolveId(id) {
+          if (id.includes('vite/preload-helper')) {
+            return 'vite/preload-helper'; // 或返回虚拟模块路径
+          }
+        }
+      }
+    ],
     build: {
       rollupOptions: {
         external: ['element-plus', 'vue']

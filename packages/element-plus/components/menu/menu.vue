@@ -1,80 +1,90 @@
 <template>
   <div class="menu-wrapper">
-    <el-menu :collapse="_collapse" class="menu" v-bind="$attrs">
-      <el-menu-item @click="onTitleClick" class="menu-title" v-if="title" index="title">
-        <el-icon>
-          <img class="logo" :src="logo" />
-        </el-icon>
+    <ElMenu
+      :collapse="_collapse"
+      class="menu"
+      v-bind="$attrs"
+    >
+      <ElMenuItem
+        v-if="title"
+        class="menu-title"
+        index="title"
+        @click="onTitleClick"
+      >
+        <ElIcon>
+          <img
+            class="logo"
+            :src="logo"
+          >
+        </ElIcon>
         <template #title>
           <span class="title">{{ title }}</span>
         </template>
-      </el-menu-item>
-      <slot></slot>
-    </el-menu>
+      </ElMenuItem>
+      <slot />
+    </ElMenu>
     <div class="trigger">
-      <el-icon class="icon-trigger" @click="toggle">
-        <icon-open v-show="collapse" />
-        <icon-close v-show="!collapse" />
-      </el-icon>
+      <ElIcon
+        class="icon-trigger"
+        @click="toggle"
+      >
+        <IconOpen v-show="collapse" />
+        <IconClose v-show="!collapse" />
+      </ElIcon>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ElIcon, ElMenu, ElMenuItem } from 'element-plus'
-import { ref, computed, getCurrentInstance } from 'vue'
-import Logo from './assets/logo.png'
-import IconOpen from './iconOpen.vue'
-import IconClose from './iconClose.vue'
+import { ElIcon, ElMenu, ElMenuItem } from 'element-plus';
+import { computed, getCurrentInstance, defineComponent } from 'vue';
+import Logo from './assets/logo.png';
+import IconOpen from './iconOpen.vue';
+import IconClose from './iconClose.vue';
 
-const emit = defineEmits(['update:collapse'])
-const instance = getCurrentInstance()
-const router = instance.appContext.config.globalProperties.$router
+const emit = defineEmits(['update:collapse']);
+const instance = getCurrentInstance();
+const router = instance.appContext.config.globalProperties.$router;
 
 const props = defineProps({
   logo: {
     type: String,
-    default: Logo
+    default: Logo,
   },
   title: {
     type: String,
   },
   collapse: {
     type: Boolean,
-    default: false
+    default: false,
   },
   url: {
-    type: String
-  }
-})
+    type: String,
+  },
+});
 
 const _collapse = computed({
   get() {
-    return props.collapse
+    return props.collapse;
   },
   set(val) {
-    emit('update:collapse', val)
-  }
-})
+    emit('update:collapse', val);
+  },
+});
 
 function toggle() {
-  _collapse.value = !_collapse.value
+  _collapse.value = !_collapse.value;
 }
 
-function onTitleClick () {
+function onTitleClick() {
   if (router && props.url) {
-    router.push(props.url)
+    router.push(props.url);
   }
 }
-
-</script>
-
-<script>
-import { defineComponent } from 'vue'
-export default defineComponent({
+defineComponent({
   name: 'VcMenu',
-  inheritAttrs: false
-})
+  inheritAttrs: false,
+});
 </script>
 
 <style lang="less" scoped>

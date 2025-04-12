@@ -2,7 +2,7 @@
   "name": "press-shared",
   "version": "v1.0.2",
   "description": "工具函数",
-  "main": "dist/press-shared.cjs.js",
+  "main": "dist/press-shared.js",
   "module": "dist/press-shared.es.js",
   "scripts": {
     "dev": "vite",

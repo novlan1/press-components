@@ -1,4 +1,5 @@
 import elementPlusSideBar from "../pages/element-plus.json"
+import tdesignVueNextSideBar from "../pages/tdesign-vue-next.json"
 
 export default {
   '/zh-CN/guide/': [
@@ -8,8 +9,7 @@ export default {
       "collapsed": false,
       items: [
         { text: 'press-element-plus', link: '/zh-CN/guide/elp-install' },
-        // { text: 'press-element-ui', link: '/zh-CN/guide/elu-install' },
-        // { text: 'vc-ant-design', link: '/zh-CN/guide/antd-install' },
+        { text: 'press-tdesign-vue-next', link: '/zh-CN/guide/tdesign-vue-next-install' },
       ]
     },
     {
@@ -19,9 +19,10 @@ export default {
       items: [
         { text: 'docs项目', link: '/zh-CN/guide/docs-dev' },
         { text: 'element-plus', link: '/zh-CN/guide/elp-dev' },
-        // { text: 'element-ui', link: '/zh-CN/guide/elu-dev' },
+        { text: 'tdesign-vue-next', link: '/zh-CN/guide/tdesign-vue-next-dev' },
       ]
     }
   ],
   '/zh-CN/components/element-plus': elementPlusSideBar,
+  '/zh-CN/components/tdesign-vue-next': tdesignVueNextSideBar,
 }

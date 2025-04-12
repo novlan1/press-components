@@ -2,8 +2,8 @@
   "name": "press-tdesign-vue-next",
   "version": "0.0.9",
   "description": "二次封装 tdesign-vue-next",
-  "main": "dist/press-element-plus.cjs.js",
-  "moudle": "dist/press-element-plus.es.js",
+  "main": "dist/press-tdesign-vue-next.cjs.js",
+  "moudle": "dist/press-tdesign-vue-next.es.js",
   "types": "dist/types/index.d.ts",
   "scripts": {
     "dev": "vite",
@@ -16,12 +16,10 @@
   "author": "",
   "license": "MIT",
   "peerDependencies": {
-    "element-plus": "^2.2.0",
     "tdesign-vue-next": "*",
     "vue": "^3.2.0"
   },
   "dependencies": {
-    "@element-plus/icons-vue": "^2.0.6",
     "lodash": "^4.17.21",
     "press-hooks": "workspace:*",
     "press-shared": "workspace:*",
@@ -29,7 +27,6 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.2.3",
-    "element-plus": "^2.2.8",
     "less": "^4.1.3",
     "rimraf": "^6.0.1",
     "vite-plugin-dts": "^4.5.3",

@@ -1,12 +1,10 @@
-import {App} from 'vue'
-import { VcTable } from './components/table'
-import { VcMenu } from './components/menu'
+import { App } from 'vue';
+import { SidebarItem } from './components/sidebar-item';
 
-const elmPlusComponents = [
-  VcTable,
-  VcMenu
-]
+const components = [
+  SidebarItem,
+];
 
 export const installer = (app: App) => {
-  elmPlusComponents.forEach((comp) => app.use(comp))
-}
+  components.forEach(comp => app.use(comp));
+};

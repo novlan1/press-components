@@ -1,27 +1,50 @@
-<template><t-submenu v-if="props.item.children?.length" :value="props.item.fullPath" :title="props.item.name">
-  <template #icon>
-    <t-icon v-if="props.item.meta?.icon" :name="props.item.meta?.icon" />
-  </template>
+<template>
+  <TSubmenu
+    v-if="props.item.children?.length"
+    :value="props.item.fullPath"
+    :title="props.item.name"
+  >
+    <template #icon>
+      <TIcon
+        v-if="props.item.meta?.icon"
+        :name="props.item.meta?.icon"
+      />
+    </template>
 
-  <SideBarItem v-for="(i, idx) in props.item.children" :key="`${i.path}-${idx}`" :item="i" @click="clickSidebar(i)" />
-</t-submenu>
+    <SideBarItem
+      v-for="(i, idx) in props.item.children"
+      :key="`${i.path}-${idx}`"
+      :item="i"
+      @click="clickSidebar(i)"
+    />
+  </TSubmenu>
 
-<t-menu-item v-else :value="props.item.fullPath" @click="clickSidebar(props.item)">
-  <template v-if="props.item.meta?.icon" #icon>
-    <t-icon :name="props.item.meta?.icon" />
-  </template>
-  <span>{{ props.item.name }}</span>
-</t-menu-item></template>
+  <TMenuItem
+    v-else
+    :value="props.item.fullPath"
+    @click="clickSidebar(props.item)"
+  >
+    <template
+      v-if="props.item.meta?.icon"
+      #icon
+    >
+      <TIcon :name="props.item.meta?.icon" />
+    </template>
+    <span>{{ props.item.name }}</span>
+  </TMenuItem>
+</template>
 <script lang="ts" setup>
-import { 
-  Menu as TMenu, 
+import {
   MenuItem as TMenuItem,
   Submenu as TSubmenu,
   Icon as TIcon,
- } from 'tdesign-vue-next';
+} from 'tdesign-vue-next';
+import type { Route } from './types';
+
+type SidebarItem = Route
 
 type Props = {
-  item: any;
+  item: SidebarItem;
 };
 
 const props = defineProps<Props>();
@@ -31,7 +54,7 @@ defineOptions({
   name: 'SideBarItem',
 });
 
-function clickSidebar(item:any) {
+function clickSidebar(item: SidebarItem) {
   emits('clickSidebar', item);
 }
 </script>

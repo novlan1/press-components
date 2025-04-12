@@ -1,10 +1,5 @@
 import { App, Plugin, Component, Directive } from 'vue';
 
-declare type SFCWithInstall<T> = T & Plugin & component
-
-declare type component = {
-  name: string
-}
 
 export function withInstall<T>(
   comp: T,

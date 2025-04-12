@@ -2,7 +2,7 @@
   "name": "press-components-docs",
   "version": "1.0.0",
   "scripts": {
-    "docs:dev": "vitepress dev",
+    "docs:dev": "tsx ./build/side-bar.ts && vitepress dev",
     "docs:build": "vitepress build",
     "docs:serve": "vitepress serve"
   },
@@ -24,6 +24,8 @@
     "@types/node": "^18.0.3",
     "@types/prismjs": "^1.26.5",
     "@vitejs/plugin-vue": "^2.3.3",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.19.3",
     "vitepress": "1.6.3"
   }
 }

@@ -4,10 +4,11 @@
   "description": "组件库",
   "scripts": {
     "docs:dev": "pnpm run -C docs docs:dev",
+    "docs:dev:tdesign": "pnpm run -C packages/tdesign-vue-next dev",
     "docs:build": "pnpm run -C docs docs:build && pnpm run -C packages/element-plus docs:build",
-    "build": "pnpm run build:elp && pnpm run build:elu && pnpm run build:shared",
+    "build": "pnpm run build:elp && pnpm run build:tdesign && pnpm run build:shared",
     "build:elp": "pnpm run -C packages/element-plus build",
-    "build:elu": "pnpm run -C packages/element-ui build",
+    "build:tdesign": "pnpm run -C packages/tdesign-vue-next build",
     "build:shared": "pnpm run -C packages/shared build",
     "release": "node scripts/release.ts"
   },
@@ -20,5 +21,30 @@
     "execa": "^5.1.0",
     "fs-extra": "^10.1.0",
     "vite": "^6.2.6"
+  },
+  "devDependencies": {
+    "eslint-config-light-vue3": "^1.0.1",
+    "eslint-plugin-light": "^1.0.3",
+    "@typescript-eslint/eslint-plugin": "7.18.0",
+    "@typescript-eslint/parser": "7.18.0",
+    "eslint": "8.57.1",
+    "eslint-config-light": "1.5.5",
+    "eslint-config-light-vue3": "1.0.1",
+    "eslint-plugin-import": "2.26.0",
+    "eslint-plugin-jest": "25",
+    "eslint-plugin-light": "1.0.3",
+    "eslint-plugin-prettier": "4.2.1",
+    "eslint-plugin-react": "7.26.1",
+    "eslint-plugin-react-hooks": "4.2.0",
+    "eslint-plugin-tailwindcss": "3.18.0",
+    "eslint-plugin-vue": "9.14.0",
+    "postcss": "8.4.49",
+    "postcss-scss": "4.0.9",
+    "stylelint": "14.16.1",
+    "stylelint-config-common": "1.0.10",
+    "stylelint-scss": "6.10.0",
+    "tailwindcss": "3.4.17",
+    "typescript": "5.5",
+    "vue-tsc": "^2.2.8"
   }
 }

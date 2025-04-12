@@ -31,3 +31,5 @@ cy-report
 .pnpm-debug.log
 docs/.vitepress/cache
 
+
+docs/.vitepress/config.ts.timestamp-*

@@ -1,14 +1,14 @@
-import {  createDateRangeShortcuts as create } from 'press-shared'
+import {  createDateRangeShortcuts as create } from 'press-shared';
 
-export function createDateRangeShortcuts () {
-  const shortcuts = create()
+export function createDateRangeShortcuts() {
+  const shortcuts = create();
   return shortcuts.map(function (item) {
-    const { value, ...rest } = item
+    const { value, ...rest } = item;
     return {
       ...rest,
-      value () {
-        return value
+      value() {
+        return value;
       }
-    }
-  })
+    };
+  });
 }

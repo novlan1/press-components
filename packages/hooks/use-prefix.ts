@@ -1,7 +1,7 @@
-const DEFAULT_PREFIX = 'mm'
+const DEFAULT_PREFIX = 'mm';
 
-export function usePrefix () {
+export function usePrefix() {
   return {
     classPrefix: DEFAULT_PREFIX
-  }
+  };
 }

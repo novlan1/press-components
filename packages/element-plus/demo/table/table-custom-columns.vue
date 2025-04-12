@@ -1,14 +1,34 @@
-<template><vc-table :data="tableData" :default-columns="defaultColumns">
-  <el-table-column prop="date" label="Date" width="160" />
-  <el-table-column prop="name" label="Name" width="90" />
-  <el-table-column prop="age" label="Age" width="90" />
-  <el-table-column prop="address" label="Address" />
-</vc-table></template>
+<template>
+  <VcTable
+    :data="tableData"
+    :default-columns="defaultColumns"
+  >
+    <el-table-column
+      prop="date"
+      label="Date"
+      width="160"
+    />
+    <el-table-column
+      prop="name"
+      label="Name"
+      width="90"
+    />
+    <el-table-column
+      prop="age"
+      label="Age"
+      width="90"
+    />
+    <el-table-column
+      prop="address"
+      label="Address"
+    />
+  </VcTable>
+</template>
 
 <script setup>
-import { VcTable } from 'press-element-plus'
+import { VcTable } from 'press-element-plus';
 
-const defaultColumns = ['Date', 'Name', 'Address']
+const defaultColumns = ['Date', 'Name', 'Address'];
 
 const tableData = [
   {
@@ -35,11 +55,11 @@ const tableData = [
     age: '20',
     address: 'No. 189, Grove St, Los Angeles',
   },
-]
+];
 </script>
 
 <script>
 export default {
-  name: 'TableCustomColumns'
-}
+  name: 'TableCustomColumns',
+};
 </script>

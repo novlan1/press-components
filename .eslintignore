@@ -1,0 +1,16 @@
+unpackage
+node_modules/
+coverage
+static/common/*
+
+dist/
+/log/
+!.vuepress
+lib/
+src/component/*
+src/api/*
+!.stylelintrc.js
+
+src/pages/press/
+src/pages/gp/
+

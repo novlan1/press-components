@@ -1,9 +1,9 @@
-import { withInstall } from '../../utils'
+import { withInstall } from '../../utils';
 
-import Menu from './menu.vue'
+import Menu from './menu.vue';
 
-export const VcMenu = withInstall(Menu)
+export const VcMenu = withInstall(Menu);
 
-export default VcMenu
+export default VcMenu;
 
-export * from './'
+// export * from './'

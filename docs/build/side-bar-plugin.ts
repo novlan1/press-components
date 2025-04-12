@@ -40,17 +40,26 @@ const getComponentsSideBar = async (path: string) => {
 const mdFilePath = ['/element-plus', 
   // '/element-ui', '/ant-design'
 ]
+let handled = false;
 
 export default function sideBarPlugin () {
   return {
     buildStart: async () => {
-      for (const filePath of mdFilePath) {
-        const sideBarArr = await getComponentsSideBar(filePath)
-        const outPutFile = `${outPutBasePath()}/${filePath}.json`
-        await fsPromises.writeFile(outPutFile, JSON.stringify(sideBarArr), {
-          encoding: 'utf-8'
-        })
+      if (handled) {
+        return;
       }
+      handled = true;
+      initSideBar();
     }
+  }
+}
+
+export async function initSideBar() {
+  for (const filePath of mdFilePath) {
+    const sideBarArr = await getComponentsSideBar(filePath)
+    const outPutFile = `${outPutBasePath()}/${filePath}.json`
+    await fsPromises.writeFile(outPutFile, JSON.stringify(sideBarArr), {
+      encoding: 'utf-8'
+    })
   }
 }

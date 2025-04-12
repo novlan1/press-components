@@ -27,4 +27,7 @@ instrumented
 cy-report
 # Local Netlify folder
 .netlify
+
 .pnpm-debug.log
+docs/.vitepress/cache
+

@@ -1,8 +1,8 @@
 import * as path from 'path'
 import * as fsPromises from 'fs/promises'
 
-const Prism = require('prismjs')
-const loadLanguages = require('prismjs/components/index')
+import Prism from 'prismjs'
+import loadLanguages from 'prismjs/components/index'
 
 loadLanguages(['markup', 'css', 'javascript'])
 

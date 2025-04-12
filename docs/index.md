@@ -2,17 +2,21 @@
 layout: home
 
 hero:
-  name: press-components
+  name: Press Components
   text: 前端组件库
   tagline: 基于 element-plus 、 tdesign 框架进行功能扩展，提供更接近业务场景的组件。
   image:
-    src: /images/press-icon.svg
+    src: https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press%2Fimg%2Fpress-ui-avatar-transparent.png
+    width: 80
   actions:
     - theme: brand
       text:  快速开始
       link: /zh-CN/guide/elp-install
     - theme: alt
-      text:  github
+      text:  Press UI
+      link: https://github.com/novlan1/press-ui/
+    - theme: alt
+      text:  Github
       link: https://github.com/novlan1/
 
 features:

@@ -1,8 +1,10 @@
-import sideBarPlugin from './build/side-bar-plugin'
+import {initSideBar} from './build/side-bar-plugin'
 import sourceCode from './build/source-code'
 import {defineConfig} from 'vite'
 import path from 'path'
 import {alias} from '../scripts'
+
+initSideBar();
 
 export default defineConfig(async ({ command, mode }) => {
   return {
@@ -15,7 +17,6 @@ export default defineConfig(async ({ command, mode }) => {
       }
     },
     plugins: [
-      sideBarPlugin(),
       sourceCode(),
     ],
     resolve: {

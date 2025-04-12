@@ -1,0 +1,9 @@
+body {
+  font-size: 14px;
+}
+
+:root {
+  --vp-c-brand-1: #00a600;  
+  --vp-c-brand-2: #63c563; /* button background when hover */
+  --vp-c-brand-3: #3bb73b; /* button background */
+}

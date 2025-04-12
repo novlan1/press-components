@@ -22,7 +22,7 @@ export default defineConfig(async ({ mode }) => {
   }
   return {
     server: {
-      port: 3333,
+      port: 3336,
     },
     plugins: ([
       vue(),

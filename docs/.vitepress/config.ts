@@ -32,7 +32,11 @@ return {
     logo: 'https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/press%2Fimg%2Fpress-ui-avatar-transparent.png',
     nav,
     sidebar,
-    footer
+    footer,
+    socialLinks: [
+      { icon: 'github', link: 'https://github.com/novlan1/press-components/' },
+    ]
+    
   }
 }
 })

@@ -5,7 +5,7 @@
   "scripts": {
     "docs:dev": "pnpm run -C docs docs:dev",
     "docs:dev:tdesign": "pnpm run -C packages/tdesign-vue-next dev",
-    "docs:build": "pnpm run -C docs docs:build && pnpm run -C packages/element-plus docs:build",
+    "docs:build": "pnpm run -C docs docs:build && pnpm run -C packages/element-plus docs:build && pnpm run -C packages/tdesign-vue-next docs:build",
     "build": "pnpm run build:elp && pnpm run build:tdesign && pnpm run build:shared",
     "build:elp": "pnpm run -C packages/element-plus build",
     "build:tdesign": "pnpm run -C packages/tdesign-vue-next build",

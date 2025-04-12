@@ -24,7 +24,7 @@ return {
       'link',
       {
         rel: 'icon',
-        href: '/images/press-ui-favicon-888.ico'
+        href: ''+base+'images/press-ui-favicon-888.ico'
       }
     ]
   ],

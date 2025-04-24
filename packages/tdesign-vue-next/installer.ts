@@ -1,4 +1,5 @@
 import { App } from 'vue';
+
 import { SidebarItem } from './components/sidebar-item';
 
 const components = [

@@ -61,5 +61,5 @@ app.use(PressTDesignVueNext)
 ## 注意事项
 
 ::: danger 关于原生库
-组件库打包时会对第三方包如 `tdesign-vue-next` 、`vue` 进行 `externals` 处理，所以务必保证使用组件的项目中导入必须要的第三方库。
+组件库打包时会对第三方包如 `tdesign-vue-next` 、`vue`、`vue-router` 进行 `externals` 处理，所以务必保证使用组件的项目中导入必须要的第三方库。
 :::

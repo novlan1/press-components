@@ -1,6 +1,8 @@
 import * as path from 'path';
-import { alias } from '../../scripts';
+
 import { defineConfig } from 'vite';
+
+import { alias } from '../../scripts/vite-config/alias';
 
 export default defineConfig(async () => ({
   build: {

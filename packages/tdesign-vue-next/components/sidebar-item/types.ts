@@ -1,13 +1,13 @@
-import type { RouteRecordRaw } from 'vue-router';
-
-
-export type Route = RouteRecordRaw & {
+export type ISidebarItem = {
+  name: string;
+  path: string;
   meta?: {
     title?: string;
+    icon?: string;
     // noCache?: boolean;
   };
   fullPath?: string;
-  children?: Route[]
+  children?: ISidebarItem[]
 };
 
 

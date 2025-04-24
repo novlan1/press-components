@@ -1,5 +1,5 @@
-import VpDemo from './vp-demo.vue'
+import VpDemo from './vp-demo.vue';
 
-export const globals = [
-  VpDemo
-]
+export const GLOBALS = [
+  VpDemo,
+];

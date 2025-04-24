@@ -2,10 +2,25 @@
   "name": "press-hooks",
   "version": "1.0.0",
   "description": "hooks",
+  "keywords": [
+    "press-ui",
+    "press-components",
+    "tdesign-vue-next",
+    "element-plus",
+    "plugin-light"
+  ],
+  "homepage": "https://novlan1.github.io/press-components/",
+  "bugs": {
+    "url": "https://github.com/novlan1/press-components/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/novlan1/press-components"
+  },
+  "license": "MIT",
+  "author": "novlan1",
   "main": "index.ts",
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "vite": "^6.2.6"
+    "vite": "6.2.6"
   }
 }

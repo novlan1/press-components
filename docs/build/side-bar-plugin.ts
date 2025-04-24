@@ -1,14 +1,14 @@
-import * as path from 'path';
 import * as fsPromises from 'fs/promises';
-import { fileURLToPath } from 'node:url';
 import { dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import * as path from 'path';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const fileName = fileURLToPath(import.meta.url);
+const tDirname = dirname(fileName);
 
-const componentBasePath = () => path.resolve(__dirname, '../zh-CN/components');
+const componentBasePath = () => path.resolve(tDirname, '../zh-CN/components');
 
-const outPutBasePath = () => path.resolve(__dirname, '../.vitepress/pages');
+const outPutBasePath = () => path.resolve(tDirname, '../.vitepress/pages');
 
 const getComponentsSideBar = async (path: string) => {
   const resolvePath = componentBasePath() + path;

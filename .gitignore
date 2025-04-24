@@ -17,8 +17,7 @@ cjs
 robotMsg
 .gitlogmap
 _site/
-package-lock.json
-pnpm-lock.yaml
+
 temp*
 robotMsg.json
 .nyc_output
@@ -33,3 +32,7 @@ docs/.vitepress/cache
 
 
 docs/.vitepress/config.ts.timestamp-*
+
+packages/press-ui-next/src/
+
+pnpm-lock.yaml

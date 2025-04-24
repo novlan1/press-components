@@ -6,7 +6,36 @@ const router = createRouter({
     {
       path: '/sidebar-item',
       component: () => import('./sidebar-item/sidebar-item.vue'),
-      name: 'TableCustomColumns',
+      name: 'SidebarItem',
+    },
+    {
+      path: '/menu',
+      component: () => import('./menu/menu.vue'),
+      name: 'Menu',
+    },
+    {
+      path: '/breadcrumb-a',
+      component: () => import('./breadcrumb/breadcrumb.vue'),
+      name: 'Breadcrumb',
+      children: [
+        {
+          path: '/breadcrumb-b',
+          component: () => import('./breadcrumb/breadcrumb.vue'),
+          name: 'BreadcrumbA',
+          children: [
+            {
+              path: '/breadcrumb',
+              component: () => import('./breadcrumb/breadcrumb.vue'),
+              name: 'BreadcrumbB',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      path: '/image-grid',
+      component: () => import('./image-grid/image-grid.vue'),
+      name: 'ImageGrid',
     },
     {
       path: '/:pathMatch(.*)*',

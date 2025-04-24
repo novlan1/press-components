@@ -36,11 +36,13 @@
 </template>
 
 <script setup>
-import { ElIcon, ElMenu, ElMenuItem } from 'element-plus';
 import { computed, getCurrentInstance, defineComponent } from 'vue';
+
+import { ElIcon, ElMenu, ElMenuItem } from 'element-plus';
+
 import Logo from './assets/logo.png';
-import IconOpen from './iconOpen.vue';
 import IconClose from './iconClose.vue';
+import IconOpen from './iconOpen.vue';
 
 const emit = defineEmits(['update:collapse']);
 const instance = getCurrentInstance();

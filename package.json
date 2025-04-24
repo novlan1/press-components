@@ -1,35 +1,61 @@
 {
   "name": "press-components",
   "version": "1.0.16",
+  "private": "true",
   "description": "组件库",
+  "keywords": [
+    "press-ui",
+    "press-components"
+  ],
+  "homepage": "https://novlan1.github.io/press-components/",
+  "bugs": {
+    "url": "https://github.com/novlan1/press-components/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/novlan1/press-components"
+  },
+  "license": "MIT",
+  "author": "novlan1",
   "scripts": {
-    "docs:dev": "pnpm run -C docs docs:dev",
-    "docs:dev:tdesign": "pnpm run -C packages/tdesign-vue-next dev",
-    "docs:build": "pnpm run -C docs docs:build && pnpm run -C packages/element-plus docs:build && pnpm run -C packages/tdesign-vue-next docs:build",
     "build": "pnpm run build:elp && pnpm run build:tdesign && pnpm run build:shared",
     "build:elp": "pnpm run -C packages/element-plus build",
-    "build:tdesign": "pnpm run -C packages/tdesign-vue-next build",
     "build:shared": "pnpm run -C packages/shared build",
+    "build:tdesign": "pnpm run -C packages/tdesign-vue-next build",
+    "docs:build": "pnpm run -C docs docs:build && pnpm run docs:build:elp && pnpm run docs:build:tdesign",
+    "docs:build:elp": "pnpm run -C packages/element-plus docs:build",
+    "docs:build:igame": "VITE_DOCS_PUBLISH_PATH=/pmd-mobile.pmd-h5.press-components.press/ VITE_APP_PUBLIC_PATH=https://image-1251917893.file.myqcloud.com npm run docs:build",
+    "docs:build:tdesign": "pnpm run -C packages/tdesign-vue-next docs:build",
+    "docs:dev": "pnpm run -C docs docs:dev",
+    "docs:dev:tdesign": "pnpm run -C packages/tdesign-vue-next dev",
     "release": "node scripts/release.ts"
   },
-  "keywords": [],
-  "author": "novlan1",
-  "license": "MIT",
   "dependencies": {
     "@types/node": "^18.0.3",
     "chalk": "^4.1.2",
+    "ebus-light": "^0.0.2",
     "execa": "^5.1.0",
     "fs-extra": "^10.1.0",
-    "vite": "^6.2.6"
+    "press-next": "^1.0.27",
+    "press-plus": "^1.7.145",
+    "press-ui": "^3.0.3",
+    "share-light": "^0.0.5",
+    "t-comm": "^1.5.12",
+    "vite": "6.2.6"
   },
   "devDependencies": {
-    "eslint-config-light-vue3": "^1.0.1",
-    "eslint-plugin-light": "^1.0.3",
+    "@stylistic/eslint-plugin-jsx": "3.1.0",
     "@typescript-eslint/eslint-plugin": "7.18.0",
     "@typescript-eslint/parser": "7.18.0",
+    "@vitejs/plugin-vue": "5.2.3",
+    "conventional-changelog": "^6.0.0",
+    "conventional-changelog-cli": "^5.0.0",
     "eslint": "8.57.1",
     "eslint-config-light": "1.5.5",
-    "eslint-config-light-vue3": "1.0.1",
+    "eslint-config-light-vue3": "^1.0.1",
+    "eslint-config-rookie": "1.0.1",
+    "eslint-import-resolver-alias": "1.1.2",
+    "eslint-import-resolver-node": "0.3.9",
     "eslint-plugin-import": "2.26.0",
     "eslint-plugin-jest": "25",
     "eslint-plugin-light": "1.0.3",
@@ -39,12 +65,19 @@
     "eslint-plugin-tailwindcss": "3.18.0",
     "eslint-plugin-vue": "9.14.0",
     "postcss": "8.4.49",
+    "postcss-html": "1.6.0",
     "postcss-scss": "4.0.9",
+    "project-config-uni-vite": "^0.0.2",
+    "project-config-uni-vue": "^0.0.2",
+    "project-config-vite": "^0.0.2",
+    "project-config-vue": "^0.0.2",
+    "standard-version": "^9.5.0",
     "stylelint": "14.16.1",
     "stylelint-config-common": "1.0.10",
     "stylelint-scss": "6.10.0",
     "tailwindcss": "3.4.17",
     "typescript": "5.5",
-    "vue-tsc": "^2.2.8"
+    "vite-plugin-dts": "^4.5.3",
+    "vue-tsc": "2.2.8"
   }
 }

@@ -1,4 +1,4 @@
 export default {
   message: 'press-components',
-  copyright: 'Copyright © 2022-present novlan1'
-}
+  copyright: 'Copyright © 2022-present novlan1',
+};

@@ -1,5 +1,5 @@
-import * as path from 'path';
 import * as fsPromises from 'fs/promises';
+import * as path from 'path';
 
 import Prism from 'prismjs';
 import loadLanguages from 'prismjs/components/index';

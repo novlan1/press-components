@@ -1,130 +1,163 @@
 <template>
-  <div class="container" :class="{ 'full-screen-container': isFullScreen }">
+  <div
+    class="container"
+    :class="{ 'full-screen-container': isFullScreen }"
+  >
     <div class="demo">
       <div class="menu">
-        <i class="icon"
-           v-for="icon in iconColorArr"
-           :key="icon.color"
-           :style="{ backgroundColor: icon.color }"
+        <i
+          v-for="icon in iconColorArr"
+          :key="icon.color"
+          class="icon"
+          :style="{ backgroundColor: icon.color }"
         >
-          <el-icon v-if="icon.name === 'scale'" class="d-caret" @click="handleToggleFullScreen"><DCaret /></el-icon>
+          <ElIcon
+            v-if="icon.name === 'scale'"
+            class="d-caret"
+            @click="handleToggleFullScreen"
+          ><DCaret /></ElIcon>
         </i>
       </div>
-      <iframe class="elp-iframe"
-              :class="{ 'full-screen-iframe': isFullScreen }"
-              :src="`${baseUrl[props.libType]}#/${props.iframeSrc}`"
-              :style="{ height: demoHeight }"
+      <iframe
+        class="elp-iframe"
+        :class="{ 'full-screen-iframe': isFullScreen }"
+        :src="`${baseUrl[props.libType]}#/${props.iframeSrc}`"
+        :style="{ height: demoHeight }"
       />
     </div>
     <div class="options">
-      <el-tooltip
-          content="全屏预览"
-          placement="bottom"
+      <ElTooltip
+        content="全屏预览"
+        placement="bottom"
       >
-        <el-icon class="option-item" @click="handleToggleFullScreen"><FullScreen /></el-icon>
-      </el-tooltip>
-      <el-tooltip
-          content="复制代码"
-          placement="bottom"
+        <ElIcon
+          class="option-item"
+          @click="handleToggleFullScreen"
+        >
+          <FullScreen />
+        </ElIcon>
+      </ElTooltip>
+      <ElTooltip
+        content="复制代码"
+        placement="bottom"
       >
-        <el-icon class="option-item" @click="copyCode"><CopyDocument /></el-icon>
-      </el-tooltip>
-      <el-tooltip
-          content="查看源码"
-          placement="bottom"
+        <ElIcon
+          class="option-item"
+          @click="copyCode"
+        >
+          <CopyDocument />
+        </ElIcon>
+      </ElTooltip>
+      <ElTooltip
+        content="查看源码"
+        placement="bottom"
       >
-        <span class="option-item code-btn" @click="handleToggleCode">&lt;/&gt;</span>
-      </el-tooltip>
+        <span
+          class="option-item code-btn"
+          @click="handleToggleCode"
+        >&lt;/&gt;</span>
+      </ElTooltip>
     </div>
-    <El-collapse-transition>
-      <div class="source-code" v-if="isShowCode">
-        <div class="decode" v-html="decoded" />
+    <ElCollapseTransition>
+      <div
+        v-if="isShowCode"
+        class="source-code"
+      >
+        <div
+          class="decode"
+          v-html="decoded"
+        />
         <div class="hide-code-btn">
-          <el-button type="info" link :icon="CaretTop" @click="handleToggleCode">隐藏源代码</el-button>
+          <ElButton
+            type="info"
+            link
+            :icon="CaretTop"
+            @click="handleToggleCode"
+          >
+            隐藏源代码
+          </ElButton>
         </div>
       </div>
-    </El-collapse-transition>
+    </ElCollapseTransition>
   </div>
 </template>
 
-<script setup>
-import { ref, computed, onMounted } from 'vue'
-import { ElIcon, ElTooltip, ElCollapseTransition, ElButton, ElMessage } from 'element-plus'
-import { FullScreen, DCaret, CaretTop, CopyDocument } from '@element-plus/icons-vue'
-import { useClipboard } from '@vueuse/core'
-import 'prismjs/themes/prism-tomorrow.css'
+<script setup lang="ts">
+import { ref, computed, onMounted } from 'vue';
+
+import { FullScreen, DCaret, CaretTop, CopyDocument } from '@element-plus/icons-vue';
+import { useClipboard } from '@vueuse/core';
+import { ElIcon, ElTooltip, ElCollapseTransition, ElButton, ElMessage } from 'element-plus';
+import 'prismjs/themes/prism-tomorrow.css';
 
 const props = defineProps({
   libType: {
     type: String,
-    default: 'element-plus'
+    default: 'element-plus',
   },
   iframeSrc: {
     type: String,
-    default: ''
+    default: '',
   },
   demoHeight: {
     type: String,
-    default: '320px'
+    default: '320px',
   },
   sourceCode: {
     type: String,
-    default: ''
+    default: '',
   },
   rawSource: {
     type: String,
-    default: ''
-  }
-})
+    default: '',
+  },
+});
 
-const decoded = computed(() => {
-  return decodeURIComponent(props.sourceCode)
-})
+const decoded = computed(() => decodeURIComponent(props.sourceCode));
 
 const baseUrl = {
   'element-plus': import.meta.env.VITE_ELP_DEV_BASE,
   'element-ui': import.meta.env.VITE_ELU_DEV_BASE,
   'ant-design': import.meta.env.VITE_ANT_DEV_BASE,
   'tdesign-vue-next': import.meta.env.VITE_TDESIGN_DEV_BASE,
-}
+};
 
-const iconColorArr = [{ name: '', color: '#fe5f57' }, { name: '', color: '#ffbc2d' }, { name: 'scale', color: '#27c83e' }]
+const iconColorArr = [{ name: '', color: '#fe5f57' }, { name: '', color: '#ffbc2d' }, { name: 'scale', color: '#27c83e' }];
 
-const isFullScreen = ref(false)
-const isShowCode = ref(false)
+const isFullScreen = ref(false);
+const isShowCode = ref(false);
 
-const handleToggleFullScreen = () => isFullScreen.value = !isFullScreen.value
+const handleToggleFullScreen = () => isFullScreen.value = !isFullScreen.value;
 
-const handleToggleCode = () => isShowCode.value = !isShowCode.value
+const handleToggleCode = () => isShowCode.value = !isShowCode.value;
 
 const { copy, isSupported } = useClipboard({
   source: decodeURIComponent(props.rawSource),
-  read: false
-})
+  read: false,
+});
 
 const copyCode = async () => {
   if (!isSupported) {
-    ElMessage.error('不支持复制')
+    ElMessage.error('不支持复制');
   }
   try {
-    await copy()
-    ElMessage.success('复制成功')
+    await copy();
+    ElMessage.success('复制成功');
   } catch (e) {
-    ElMessage.error(e.message)
+    ElMessage.error(e.message);
   }
-}
+};
 
 onMounted(() => {
   document.addEventListener('keyup', (e) => {
-    if (e.key === 'Escape' || e.key === 'Esc') isFullScreen.value = false
-  })
-})
+    if (e.key === 'Escape' || e.key === 'Esc') isFullScreen.value = false;
+  });
+});
 </script>
-
-<script>
+<script lang="ts">
 export default {
-  name: 'VpDemo'
-}
+  name: 'VpDemo',
+};
 </script>
 
 <style scoped lang="less">

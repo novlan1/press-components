@@ -1,6 +1,7 @@
 <script>
-import { ElTable } from 'element-plus';
 import { defineComponent, Fragment, h, useSlots, watch } from 'vue';
+
+import { ElTable } from 'element-plus';
 import { isEqual } from 'lodash';
 
 export default defineComponent({

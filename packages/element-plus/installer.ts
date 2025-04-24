@@ -1,6 +1,7 @@
 import {App} from 'vue';
-import { VcTable } from './components/table';
+
 import { VcMenu } from './components/menu';
+import { VcTable } from './components/table';
 
 const elmPlusComponents = [
   VcTable,

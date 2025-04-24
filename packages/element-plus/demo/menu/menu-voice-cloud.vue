@@ -66,7 +66,7 @@
 
 <script setup>
 import { ref } from 'vue';
-import { VcMenu } from 'press-element-plus';
+
 import {
   Odometer,
   Monitor,
@@ -74,6 +74,8 @@ import {
   DataAnalysis,
   Notebook,
 } from '@element-plus/icons-vue';
+
+import { VcMenu } from 'press-element-plus';
 
 const collapse = ref(false);
 </script>

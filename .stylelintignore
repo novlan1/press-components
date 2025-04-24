@@ -8,7 +8,11 @@
 *.woff
 
 # 测试和打包目录
-/test/
+test/
 dist/
-tests/unit/coverage/
+
+src/api/
+src/component/
 log/
+!.vitepress
+packages/press-ui-next/src/

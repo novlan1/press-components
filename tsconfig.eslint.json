@@ -8,6 +8,7 @@
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
-    ".eslintrc.js"
+    ".eslintrc.js",
+    "./docs/.vitepress/**/*"
   ]
 }

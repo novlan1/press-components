@@ -52,11 +52,15 @@
 </template>
 
 <script setup lang="ts">
-import { ElPopover, ElCheckbox, ElCheckboxGroup, ElIcon } from 'element-plus';
-import RenderElTable from './render-el-table.vue';
-import { Setting } from '@element-plus/icons-vue';
 import { ref, onMounted, defineComponent, defineProps } from 'vue';
+
+import { Setting } from '@element-plus/icons-vue';
+import { ElPopover, ElCheckbox, ElCheckboxGroup, ElIcon } from 'element-plus';
+
 import { usePrefix } from 'press-hooks';
+
+import RenderElTable from './render-el-table.vue';
+
 
 const { classPrefix } = usePrefix();
 

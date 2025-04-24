@@ -2,36 +2,47 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
-    "moduleResolution": "node",
     "strict": true,
-    "jsx": "react-jsx",
-    "sourceMap": true,
-    "resolveJsonModule": true,
+    "importHelpers": true,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
     "esModuleInterop": true,
-    "lib": [
-      "esnext",
-      "dom"
-    ],
-    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
     "baseUrl": ".",
+    "allowJs": true,
+    "noEmit": true,
+    "jsx": "preserve",
+    "noImplicitAny": false,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "noImplicitThis": true,
+    "types": [],
     "paths": {
       "press-shared/*": [
         "./packages/shared/*",
-        "./*"
+      ],
+      "press-tdesign-vue-next": [
+        "./packages/tdesign-vue-next",
       ],
       "press-hooks/*": [
         "./packages/hooks/*",
-        "./*"
       ]
-    }
+    },
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable",
+      "scripthost"
+    ]
   },
   "include": [
-    "packages/*.d.ts",
-    "packages/element-plus/components", // element-ui用js开发
-    "docs",
-    "./**/*.vue"
+    "./**/*",
+    "./**/*.vue",
+    "./docs/.vitepress/*.vue"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "src/library/**/*"
   ]
 }

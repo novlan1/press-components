@@ -1,6 +1,7 @@
 # 开发 `element-plus` 组件
 
 ## 一、开发环境
+
 1. 进入组件项目：`packages/element-plus`
 2. 安装依赖：`pnpm install`
 3. 执行命令：`pnpm dev`
@@ -11,29 +12,31 @@ dev端口: 3333
 
 - 组件目录位于工程：`packages/element-plus/components`。可参照已有组件进行新组件开发。
 
-
 1. 单个组件中，提供 `index` 组件入口。并使用 `withInstall` 方法包装组件（用于组件注册）,具体如下代码。
-  ```js
-  import { withInstall } from '../../utils'
 
-  import Table from './table.vue'
+```js
+import { withInstall } from '../../utils'
 
-  export const VcTable = withInstall(Table)
-  
-  export default VcTable
-  
-  export * from './'
-  ```
+import Table from './table.vue'
+
+export const VcTable = withInstall(Table)
+
+export default VcTable
+
+export * from './'
+```
 
 2. 在当前项目 `components` 目录的入口 `index` 中导出组件。
-  ```js
-  export * from './button'
-  export * from './tag'
-  export * from './table'
-  // ...
-  ```
+
+```js
+export * from './button'
+export * from './tag'
+export * from './table'
+// ...
+```
 
 3. 根目录 `installer.ts` 中，添加新开发的组件
+
 ```js
 import {App} from 'vue'
 import { VcTable } from './components/table'
@@ -50,6 +53,7 @@ export const installer = (app: App) => {
 ```
 
 ## 三、demo组件注意事项
+
 开发调试的时候，都是通过使用 demo组件 来开发调试组件，在当前项目启动的 dev server，访问的是 demo组件 而非组件库中的组件。
 
 路由文件：`element-plus/demo/router.ts`

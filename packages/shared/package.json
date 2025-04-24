@@ -2,15 +2,32 @@
   "name": "press-shared",
   "version": "v1.0.2",
   "description": "工具函数",
-  "main": "dist/press-shared.js",
-  "module": "dist/press-shared.es.js",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build"
+  "keywords": [
+    "press-ui",
+    "press-components",
+    "tdesign-vue-next",
+    "plugin-light"
+  ],
+  "homepage": "https://novlan1.github.io/press-components/",
+  "bugs": {
+    "url": "https://github.com/novlan1/press-components/issues"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/novlan1/press-components"
+  },
   "license": "MIT",
+  "author": "novlan1",
+  "main": "dist/press-shared.js",
+  "module": "dist/press-shared.mjs",
+  "scripts": {
+    "build": "vite build",
+    "bump": "node ../../scripts/release/version-simple $PWD",
+    "changelog": "node ../../scripts/release/changelog $PWD",
+    "dev": "vite",
+    "release": "node ../../scripts/release/release $PWD"
+  },
   "devDependencies": {
-    "vite": "^6.2.6"
+    "vite": "6.2.6"
   }
 }

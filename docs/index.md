@@ -11,13 +11,13 @@ hero:
   actions:
     - theme: brand
       text:  快速开始
-      link: /zh-CN/guide/elp-install
+      link: /zh-CN/guide/tdesign-vue-next-install
     - theme: alt
       text:  Press UI
-      link: https://github.com/novlan1/press-ui/
+      link: https://novlan1.github.io/press-ui/
     - theme: alt
-      text:  Github
-      link: https://github.com/novlan1/
+      text:  Press Next
+      link: https://h5.igame.qq.com/pmd-mobile.pmd-h5.press-next.press-next/
 
 features:
   - icon: ⚡️

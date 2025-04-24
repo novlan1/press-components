@@ -30,60 +30,14 @@
 
 <script lang="ts" setup>
 import { ref, computed } from 'vue';
-import { SidebarItem } from 'press-tdesign-vue-next';
+
 import { Menu as TMenu, Icon as TIcon, Button as TButton } from 'tdesign-vue-next';
 
+import { SidebarItem, type ISidebarItem } from 'press-tdesign-vue-next';
 
-const parsedRoutes = ref([
-  {
-    path: '/hok/match',
-    name: '赛事列表',
-    meta: {
-      title: '赛事列表',
-      icon: 'data',
-    },
-    fullPath: '/hok/match',
-    children: [
+import { ROUTES } from './routes';
 
-    ],
-  },
-  {
-    path: '/hok/homepage',
-    name: '端内首页',
-    meta: {
-      title: '端内首页',
-      icon: 'command',
-    },
-    fullPath: '/hok/homepage',
-    children: [
-
-    ],
-  },
-  {
-    path: '/hok/recommend',
-    name: '推荐管理',
-    meta: {
-      title: '推荐管理',
-      icon: 'page-first',
-    },
-    fullPath: '/hok/recommend',
-    children: [
-
-    ],
-  },
-  {
-    path: '/hok/brand',
-    name: '品牌管理',
-    meta: {
-      title: '品牌管理',
-      icon: 'star',
-    },
-    fullPath: '/hok/brand',
-    children: [
-
-    ],
-  },
-]);
+const parsedRoutes = ref(ROUTES);
 
 const activeIndex = computed(() => '/hok/match');
 
@@ -95,7 +49,7 @@ const changeCollapse = () => {
 const isCollapse = ref(false);
 
 
-const clickSidebar = (item) => {
+const clickSidebar = (item: ISidebarItem) => {
   console.log('item', item);
 };
 </script>

@@ -1,10 +1,14 @@
 // import { initSideBar } from './build/side-bar-plugin';
-import sourceCode from './build/source-code';
-import { defineConfig } from 'vite';
 import path from 'path';
-import { alias } from '../scripts';
+
+import { defineConfig } from 'vite';
+
+import { alias } from '../scripts/vite-config/alias';
+
+import sourceCode from './build/source-code';
 
 // initSideBar();
+
 
 // @ts-ignore
 export default defineConfig(async () => ({

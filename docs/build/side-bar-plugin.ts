@@ -20,7 +20,7 @@ const getComponentsSideBar = async (path: string) => {
     const fileArr = await fsPromises.readdir(dirPath);
 
     return {
-      text: dirItemPath,
+      text: dirItemPath.replace('-', ' '),
       collapsible: true,
       collapsed: false,
       items: await Promise.all(fileArr.map(async (fileName: string) => {

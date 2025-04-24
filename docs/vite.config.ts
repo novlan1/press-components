@@ -1,4 +1,3 @@
-// import { initSideBar } from './build/side-bar-plugin';
 import path from 'path';
 
 import { defineConfig } from 'vite';
@@ -6,8 +5,6 @@ import { defineConfig } from 'vite';
 import { alias } from '../scripts/vite-config/alias';
 
 import sourceCode from './build/source-code';
-
-// initSideBar();
 
 
 // @ts-ignore

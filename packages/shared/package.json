@@ -27,7 +27,5 @@
     "dev": "vite",
     "release": "node ../../scripts/release/release $PWD"
   },
-  "devDependencies": {
-    "vite": "6.2.6"
-  }
+  "devDependencies": {}
 }

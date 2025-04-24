@@ -53,8 +53,8 @@ import { SidebarItem } from '../sidebar-item';
 import type { ISidebarItem } from '../sidebar-item/types';
 
 const LOGO_MAP = {
-  NORMAL: 'https://image-1251917893.file.myqcloud.com/img/logo.905ef673.png',
-  COLLAPSE: 'https://image-1251917893.file.myqcloud.com/igame/rd-platform/igame-VisualReport/igame-logo-mini.png',
+  NORMAL: '',
+  COLLAPSE: '',
 };
 
 type Props = {

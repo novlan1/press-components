@@ -16,8 +16,8 @@ hero:
       text:  Press UI
       link: https://novlan1.github.io/press-ui/
     - theme: alt
-      text:  Press Next
-      link: https://h5.igame.qq.com/pmd-mobile.pmd-h5.press-next.press-next/
+      text:  Plugin Light
+      link: https://novlan1.github.io/plugin-light/
 
 features:
   - icon: ⚡️

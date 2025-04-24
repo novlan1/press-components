@@ -67,7 +67,6 @@
     "postcss": "8.4.49",
     "postcss-html": "1.6.0",
     "postcss-scss": "4.0.9",
-    "project-config-uni-vite": "^0.0.2",
     "project-config-uni-vue": "^0.0.2",
     "project-config-vite": "^0.0.2",
     "project-config-vue": "^0.0.2",

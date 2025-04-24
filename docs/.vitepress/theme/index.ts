@@ -1,6 +1,6 @@
 import { App, Component } from 'vue';
 
-import VcComponents from 'element-plus';
+import VcComponents from 'press-element-plus';
 import Theme from 'vitepress/theme';
 
 import { GLOBALS } from '../components';

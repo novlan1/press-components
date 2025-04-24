@@ -1,0 +1,1 @@
+import{B as e}from"./index-DWdD91LI.js";import{d as r,b as a,f as o,u as t,o as n}from"./index-C_LQaBZN.js";const _=r({__name:"breadcrumb",setup(c){return(s,m)=>(n(),a("div",null,[o(t(e))]))}});export{_ as default};

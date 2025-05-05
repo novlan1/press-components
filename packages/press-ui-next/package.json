@@ -37,8 +37,8 @@
     "global.d.ts"
   ],
   "scripts": {
-    "prebuild": "rimraf es/* esm/* lib/* cjs/* dist/* node_modules/press-ui/* --glob",
-    "build": "cross-env NODE_ENV=production rollup -c script/build/rollup.config.ts && npm run build:tsc && npm run dts:update && npm run css:update",
+    "prebuild": "rimraf es/* esm/* lib/* cjs/* dist/* --glob",
+    "build": "cross-env NODE_ENV=production rollup -c script/build/rollup.config.js && npm run build:tsc && npm run dts:update && npm run css:update",
     "init": "node script/build/init",
     "build:tsc": "concurrently \"npm:build:tsc-*\"",
     "build:tsc-es": "vue-tsc --declaration --emitDeclarationOnly -p tsconfig.build.json --outDir es/",
@@ -67,7 +67,7 @@
     "@dcloudio/types": "^3.4.8",
     "@plugin-light/vite-plugin-alias-for-library": "^0.0.7",
     "@plugin-light/vite-plugin-gen-version": "^0.0.7",
-    "@plugin-light/vite-plugin-ifdef": "^0.0.7",
+    "@plugin-light/vite-plugin-ifdef": "^0.0.8",
     "@rollup/plugin-babel": "^5.2.2",
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-eslint": "^8.0.1",
@@ -122,6 +122,5 @@
     "vitest": "^3.0.7",
     "vue-tsc": "^2.0.21"
   },
-  "peerDependencies": {},
   "title": "press-ui"
 }

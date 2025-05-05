@@ -1,3 +1,17 @@
+## <small>0.0.40 (2025-04-30)</small>
+
+* feat(header): add header-role and header-avatar ([9b7978c](https://github.com/novlan1/press-components/commits/9b7978c))
+
+
+
+## <small>0.0.39 (2025-04-29)</small>
+
+* feat(breadcrumb): 优化组件引入 ([13b37d2](https://github.com/novlan1/press-components/commits/13b37d2))
+* chore: update deps ([2b9f827](https://github.com/novlan1/press-components/commits/2b9f827))
+* docs: update docs ([c01302e](https://github.com/novlan1/press-components/commits/c01302e))
+
+
+
 ## <small>0.0.38 (2025-04-24)</small>
 
 * feat(image-grid): support width & height ([d343243](https://github.com/novlan1/press-components/commits/d343243))

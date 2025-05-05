@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <Breadcrumb />
-  </div>
+  <Breadcrumb />
 </template>
 <script lang="ts" setup>
 import { Breadcrumb } from 'press-tdesign-vue-next';

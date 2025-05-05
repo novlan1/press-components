@@ -16,13 +16,13 @@
 
 ```shell
 # NPM
-npm install xxx
+npm install press-element-plus
 
 # Yarn
-yarn install xxx
+yarn install press-element-plus
 
 # pnpm
-pnpm install xxx
+pnpm install press-element-plus
 ```
 
 ## 快速开始

@@ -38,6 +38,16 @@ const router = createRouter({
       name: 'ImageGrid',
     },
     {
+      path: '/header-role',
+      component: () => import('./header-role/header-role.vue'),
+      name: 'HeaderRole',
+    },
+    {
+      path: '/header-avatar',
+      component: () => import('./header-avatar/header-avatar.vue'),
+      name: 'HeaderAvatar',
+    },
+    {
       path: '/:pathMatch(.*)*',
       redirect: '/sidebar-item',
     },

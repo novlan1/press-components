@@ -1,34 +1,35 @@
-// import analyzer from 'rollup-plugin-analyzer';
 import { DEFAULT_EXTENSIONS } from '@babel/core';
 import babel from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
+
 import nodeResolve from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
 import url from '@rollup/plugin-url';
-import { ifdefVitePlugin } from 'vite-plugin-ifdef';
+import { ifdefVitePlugin } from '@plugin-light/vite-plugin-ifdef';
+
 import copy from 'rollup-plugin-copy';
 import deletePlugin from 'rollup-plugin-delete';
 import esbuild from 'rollup-plugin-esbuild';
 import ignoreImport from 'rollup-plugin-ignore-import';
+
 import multiInput from 'rollup-plugin-multi-input';
 import postcss from 'rollup-plugin-postcss';
 import staticImport from 'rollup-plugin-static-import';
 import styles from 'rollup-plugin-styles';
+
 import { terser } from 'rollup-plugin-terser';
 import vuePlugin from 'rollup-plugin-vue';
-// import renameNodeModules from 'rollup-plugin-rename-node-modules';
-// import glob from 'glob';
 
 import pkg from '../../package.json';
 
-import type { RollupOptions } from 'rollup';
 
 const name = 'press-ui';
 const esExternalDeps = Object.keys(pkg.dependencies || {});
-// @ts-ignore
+
 const externalDeps = esExternalDeps.concat([/lodash/, /@babel\/runtime/]);
 const externalPeerDeps = Object.keys(pkg.peerDependencies || {});
+
 const banner = `/**
  * ${name} v${pkg.version}
  * (c) ${new Date().getFullYear()} ${pkg.author}
@@ -36,10 +37,8 @@ const banner = `/**
  */
 `;
 
-// const input = 'src/index-lib.ts';
 const inputList = [
   'src/**/*.ts',
-  // 'src/**/press-*/index.js',
   'src/**/*.js',
   'src/**/*.vue',
   'src/**/*.tsx',
@@ -98,13 +97,13 @@ const getPlugins = ({
       extensions: ['.sass', '.scss', '.css', '.less'],
     }));
   } else if (extractMultiCss) {
-    console.log('abc');
     plugins.push(
+      postcss({}),
+
       staticImport({
         include: ['src/**/css/css.mjs'],
       }),
       ignoreImport({
-        // include: ['src/*/style/*'],
         include: ['**/*.scss', '**/*.css'],
         body: 'import "./css/css.mjs";',
       }),
@@ -115,13 +114,10 @@ const getPlugins = ({
             src: 'src/**/css/index.js',
             dest: 'es',
             rename: (name, extension, fullPath) => {
-              console.log('fullPath', fullPath);
               const result = `${fullPath.substring(4, fullPath.length - 8)}css.mjs`;
-              console.log('result', result);
               return result;
             },
-            transform(contents, name) {
-              console.log('contents', contents.toString(), name);
+            transform(contents) {
               return contents.toString().replace('index.scss', 'index.css');
             },
           },
@@ -145,9 +141,13 @@ const getPlugins = ({
       }),
     );
   } else if (ignoreLess) {
-    plugins.push(ignoreImport({ include: ['**/*.scss', '**/*.css'] }));
+    plugins.push(
+      postcss({}),
+      ignoreImport({ include: ['**/*.scss', '**/*.css'] }),
+    );
   } else {
     plugins.push(
+      postcss({}),
       staticImport({
         include: ['src/**/style/index.js', 'src/_common/style/mobile/**/*.less'],
       }),
@@ -170,9 +170,7 @@ const getPlugins = ({
   if (isProd) {
     plugins.push(terser({
       output: {
-        /* eslint-disable */
-          ascii_only: true,
-          /* eslint-enable */
+        ascii_only: true,
       },
     }));
   }
@@ -199,9 +197,9 @@ const deleteEmptyJSConfig = {
 const exception = ['dayjs'];
 const esExternal = esExternalDeps.concat(externalPeerDeps).filter(value => !exception.includes(value));
 
+
 /** @type {import('rollup').RollupOptions} */
 const esConfig = {
-  // input: inputList.concat('!src/index-lib.ts'),
   input: inputList,
   // 为了保留 style/css.js
   treeshake: false,
@@ -213,28 +211,21 @@ const esConfig = {
     format: 'esm',
     sourcemap: true,
     entryFileNames: '[name].mjs',
-    // chunkFileNames: '_chunks/dep-[hash].mjs',
-    // @ts-ignore
     chunkFileNames(chunkInfo) {
-      console.log('chunkInfo', chunkInfo);
       const moduleIds = Object.keys(chunkInfo.modules);
       const reg = /\/(press-[\w-]+|swiper-item|swiper|scroll-view)\.vue$/;
       const vueFile = moduleIds.find(item => reg.test(item));
       if (vueFile) {
         const match = vueFile.match(reg);
-        console.log('vueFile', vueFile);
         return `${match[1]}/dep-[hash].js`;
       }
-      console.log('moduleIds', moduleIds);
       return '_chunks/dep-[hash].js';
     },
-    // preserveModules: true,
   },
 };
 
-const esmConfig: RollupOptions = {
+const esmConfig = {
   input: inputList,
-  // input: inputList.concat('!src/index-lib.ts'),
   // 为了保留 style/index.js
   treeshake: false,
   external: externalDeps.concat(externalPeerDeps),
@@ -244,24 +235,22 @@ const esmConfig: RollupOptions = {
     dir: 'esm/',
     format: 'esm',
     sourcemap: true,
-    // chunkFileNames: '_chunks/dep-[hash].js',
-    // @ts-ignore
     chunkFileNames(chunkInfo) {
-      console.log('chunkInfo', chunkInfo);
       const moduleIds = Object.keys(chunkInfo.modules);
       const reg = /\/(press-[\w-]+|swiper-item|swiper|scroll-view)\.vue$/;
       const vueFile = moduleIds.find(item => reg.test(item));
+
       if (vueFile) {
         const match = vueFile.match(reg);
         return `${match[1]}/dep-[hash].js`;
       }
-      console.log('moduleIds', moduleIds);
+
       return '_chunks/dep-[hash].js';
     },
   },
 };
 
-const libConfig: RollupOptions = {
+const libConfig = {
   input: inputList,
   external: externalDeps.concat(externalPeerDeps),
   plugins: [multiInput()].concat(getPlugins()),
@@ -275,7 +264,7 @@ const libConfig: RollupOptions = {
 };
 
 
-const cjsConfig: RollupOptions = {
+const cjsConfig = {
   input: inputList,
   external: externalDeps.concat(externalPeerDeps),
   plugins: [multiInput()].concat(getPlugins()),
@@ -289,60 +278,6 @@ const cjsConfig: RollupOptions = {
   },
 };
 
-// const umdConfig: RollupOptions = {
-//   input,
-//   external: externalPeerDeps,
-//   plugins: getPlugins({
-//     env: 'development',
-//     extractOneCss: true,
-//   }).concat(analyzer({ limit: 5, summaryOnly: true })),
-//   output: {
-//     name: 'TDesign',
-//     banner,
-//     format: 'umd',
-//     exports: 'named',
-//     globals: { vue: 'Vue' },
-//     sourcemap: true,
-//     file: `dist/${name}.js`,
-//   },
-// };
-
-// const umdMinConfig: RollupOptions = {
-//   input,
-//   external: externalPeerDeps,
-//   plugins: getPlugins({
-//     isProd: true,
-//     extractOneCss: true,
-//     env: 'production',
-//   }),
-//   output: {
-//     name: 'TDesign',
-//     banner,
-//     format: 'umd',
-//     exports: 'named',
-//     globals: { vue: 'Vue' },
-//     sourcemap: true,
-//     file: `dist/${name}.min.js`,
-//   },
-// };
-
-// 单独导出 reset.css 到 dist 目录，兼容旧版本样式
-// const resetCss = {
-//   input: 'src/_common/style/mobile/_reset.less',
-//   output: {
-//     file: 'dist/reset.css',
-//   },
-//   plugins: [postcss({ extract: true })],
-// };
-
-// 单独导出 plugin 相关组件的样式，支持修改类名前缀后因上下文暂时无法获取的情况导致组件样式失效的场景下使用
-// const pluginCss = {
-//   input: 'src/_common/style/mobile/_plugin.less',
-//   output: {
-//     file: 'dist/plugin.css',
-//   },
-//   plugins: [postcss({ extract: true })],
-// };
 
 const RESULT = [
   cssConfig,
@@ -350,10 +285,6 @@ const RESULT = [
   esmConfig,
   libConfig,
   cjsConfig,
-  // umdConfig,
-  // umdMinConfig,
-  // pluginCss,
-  // resetCss,
   deleteEmptyJSConfig,
 ];
 

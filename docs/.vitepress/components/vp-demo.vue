@@ -116,10 +116,10 @@ const props = defineProps({
 const decoded = computed(() => decodeURIComponent(props.sourceCode));
 
 const baseUrl = {
-  'element-plus': import.meta.env.VITE_ELP_DEV_BASE,
-  'element-ui': import.meta.env.VITE_ELU_DEV_BASE,
-  'ant-design': import.meta.env.VITE_ANT_DEV_BASE,
-  'tdesign-vue-next': import.meta.env.VITE_TDESIGN_DEV_BASE,
+  'element-plus': (import.meta as any).env.VITE_ELP_DEV_BASE,
+  'element-ui': (import.meta as any).env.VITE_ELU_DEV_BASE,
+  'ant-design': (import.meta as any).env.VITE_ANT_DEV_BASE,
+  'tdesign-vue-next': (import.meta as any).env.VITE_TDESIGN_DEV_BASE,
 };
 
 const iconColorArr = [{ name: '', color: '#fe5f57' }, { name: '', color: '#ffbc2d' }, { name: 'scale', color: '#27c83e' }];

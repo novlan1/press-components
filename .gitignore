@@ -33,6 +33,6 @@ docs/.vitepress/cache
 
 docs/.vitepress/config.ts.timestamp-*
 
-packages/press-ui-next/src/
+packages/press-*-next/src/
 
 pnpm-lock.yaml

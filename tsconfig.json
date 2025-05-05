@@ -17,7 +17,9 @@
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "noImplicitThis": true,
-    "types": [],
+    "types": [
+      "vite/client"
+    ],
     "paths": {
       "press-shared/*": [
         "./packages/shared/*",
